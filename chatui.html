@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Automation Assistant</title>
+    <style></style>
+</head>
+<body>
+    <!-- Chat Widget Button -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-icon" id="chatIcon">💬</div>
+    </div>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chatContainer">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <div class="status-indicator"></div>
+            <div class="chat-title">Word Automation Assistant</div>
+            <div class="chat-subtitle">Your AI-Powered Document Generator</div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-content">
+                    👋 Hello! I'm your Word Automation Assistant. I can help you create professional documents, analyze data, and generate reports. 
+                    What would you like to create today?
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Progress -->
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-title">Generating Document...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- File Upload Container -->
+        <div class="file-upload-container">
+            <div class="file-drop-zone" id="fileDropZone" onclick="document.getElementById('fileInput').click()">
+                <div class="file-drop-text">📁 Drop files here or click to upload</div>
+                <div class="file-drop-subtext">Supports CSV, Excel, JSON files</div>
+            </div>
+            <input type="file" id="fileInput" class="file-input" multiple accept=".csv,.xlsx,.xls,.json">
+            <div class="uploaded-files" id="uploadedFiles"></div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <div class="quick-actions-title">Quick Actions</div>
+            <div class="quick-buttons">
+                <button class="quick-btn" onclick="sendQuickMessage('Create a sales report')">📊 Sales Report</button>
+                <button class="quick-btn" onclick="sendQuickMessage('Write an article')">📝 Article</button>
+                <button class="quick-btn" onclick="sendQuickMessage('Generate a memo')">📋 Memo</button>
+                <button class="quick-btn" onclick="sendQuickMessage('Analyze my data')">📈 Data Analysis</button>
+                <button class="quick-btn" onclick="sendQuickMessage('Help me get started')">❓ Help</button>
+            </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input-container" style="position: relative;">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." autocomplete="off">
+            <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                ➤
+            </button>
+        </div>
+    </div>
+        <script></script>
+</body>
+</html>
