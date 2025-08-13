@@ -118,7 +118,9 @@
                 '.csv': '📊',
                 '.xlsx': '📈',
                 '.xls': '📈',
-                '.json': '📋'
+                '.json': '📋',
+                '.docx': '📋'
+
             };
             return icons[fileType] || '📄';
         }
@@ -137,7 +139,7 @@
             const fileObj = uploadedFiles.find(f => f.id == fileId);
             if (!fileObj) return;
             
-            // Update UI to show analysis in progress
+            // show analysis progress
             const fileElement = document.getElementById(`file-${fileId}`);
             fileElement.classList.add('analyzing');
             
