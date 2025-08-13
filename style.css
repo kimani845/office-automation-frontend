@@ -11,7 +11,7 @@
             overflow: hidden;
         }
 
-        /* Floating Chat Widget */
+        /* Floating Chat Widget
         .chat-widget {
             position: fixed;
             bottom: 20px;
@@ -46,9 +46,9 @@
 
         .chat-icon.close {
             transform: rotate(45deg);
-        }
+        } */
 
-        /* Chat Container */
+        /* Chat Container
         .chat-container {
             position: fixed;
             bottom: 90px;
@@ -64,6 +64,30 @@
             overflow: hidden;
             z-index: 1000;
             animation: slideUp 0.3s ease;
+        } */
+
+        /* Center chat container */
+        .chat-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex; /* always visible */
+            flex-direction: column;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .chat-container {
+                width: 90vw;
+            }
         }
 
         @keyframes slideUp {
