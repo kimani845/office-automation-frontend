@@ -114,9 +114,7 @@ body {
 .send-btn:active { transform: scale(0.9); }
 
 
-/* ====================================================== */
-/* NEW: Modal Styles for Document Generation Form         */
-/* ====================================================== */
+/* Modal Styles for Document Generation Form         */
 .modal-overlay {
     position: fixed;
     top: 0;
