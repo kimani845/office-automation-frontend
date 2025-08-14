@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // NEW: This function shows the form and pre-fills it with any data from the backend
+    // Function to show the form and pre-fills it with any data from the backend
     function showDocumentGenerationForm(params) {
         docGenForm.reset(); // Clear any old data from the form
 
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         docGenModal.style.display = 'flex';
     }
 
-    // NEW: This function runs when the user submits the document details form
+    // Runs when the user submits the document details form
     async function handleDocumentGenerationSubmit(event) {
         event.preventDefault(); // Stop the page from reloading
 
