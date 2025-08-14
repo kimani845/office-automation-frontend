@@ -3,72 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Automation Assistant</title>
+    <title>AI Office Assistant</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Chat Widget Button
-    <div class="chat-widget" id="chatWidget">
-        <div class="chat-icon" id="chatIcon">💬</div>
-    </div> -->
 
-    <!-- Chat Container -->
+    <!-- Main Chat Container -->
     <div class="chat-container" id="chatContainer">
-        <!-- Chat Header -->
         <div class="chat-header">
             <div class="status-indicator"></div>
-            <div class="chat-title">Word Automation Assistant</div>
+            <div class="chat-title">AI Office Assistant</div>
             <div class="chat-subtitle">Your AI-Powered Document Generator</div>
         </div>
 
-        <!-- Chat Messages -->
         <div class="chat-messages" id="chatMessages">
-            <div class="message bot">
-                <div class="message-content">
-                    Hello! I'm your Word Automation Assistant. I can help you create professional documents, analyze data, and generate reports. 
-                    What would you like to create today?
-                </div>
-            </div>
+            <!-- Messages will be injected here by JavaScript -->
         </div>
 
-        <!-- Document Progress -->
-        <div class="progress-container" id="progressContainer">
-            <div class="progress-title">Generating Document...</div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-        </div>
-
-        <!-- File Upload Container -->
-        <div class="file-upload-container">
+        <div class="file-upload-container" style="display: none;">
             <div class="file-drop-zone" id="fileDropZone" onclick="document.getElementById('fileInput').click()">
                 <div class="file-drop-text">📁 Drop files here or click to upload</div>
-                <div class="file-drop-subtext">Supports CSV, Excel, JSON files</div>
+                <div class="file-drop-subtext">Supports CSV & Excel files</div>
             </div>
-            <input type="file" id="fileInput" class="file-input" multiple accept=".csv,.xlsx,.xls,.json">
-            <div class="uploaded-files" id="uploadedFiles"></div>
+            <input type="file" id="fileInput" class="file-input" multiple accept=".csv,.xlsx,.xls">
         </div>
 
-        <!-- Quick Actions -->
         <div class="quick-actions">
             <div class="quick-actions-title">Quick Actions</div>
             <div class="quick-buttons">
-                <button class="quick-btn" onclick="sendQuickMessage('Create a sales report')">Report</button>
-                <button class="quick-btn" onclick="sendQuickMessage('Write an article')">Article</button>
-                <button class="quick-btn" onclick="sendQuickMessage('Generate a memo')"> Memo</button>
-                <button class="quick-btn" onclick="sendQuickMessage('Analyze my data')"> Data Analysis</button>
+                <button class="quick-btn" onclick="sendQuickMessage('Write a cover letter')">Cover Letter</button>
+                <button class="quick-btn" onclick="sendQuickMessage('Create a memo')">Memo</button>
+                <button class="quick-btn" onclick="sendQuickMessage('Analyze my data')">Analyze Data</button>
                 <button class="quick-btn" onclick="sendQuickMessage('Help me get started')">❓ Help</button>
             </div>
         </div>
 
-        <!-- Chat Input -->
-        <div class="chat-input-container" style="position: relative;">
-            <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." autocomplete="off">
-            <button class="send-btn" id="sendBtn" onclick="sendMessage()">
-                ➤
-            </button>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="e.g., 'Write a cover letter for a developer role'" autocomplete="off">
+            <button class="send-btn" id="sendBtn">➤</button>
         </div>
     </div>
+
+    <!-- ====================================================== -->
+    <!-- NEW: Document Generation Modal (Initially Hidden) -->
+    <!-- ====================================================== -->
+    <div id="docGenModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create a New Document</h2>
+                <span class="modal-close" id="docGenModalClose">&times;</span>
+            </div>
+            <form id="docGenForm">
+                <div class="form-group">
+                    <label for="docGenType">Document Type</label>
+                    <select id="docGenType" name="doc_type" required>
+                        <option value="cover_letter" selected>Cover Letter</option>
+                        <option value="memo">Memo</option>
+                        <option value="minutes">Meeting Minutes</option>
+                        <option value="generic">Generic Document</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="docGenTopic">Topic / Subject</label>
+                    <input type="text" id="docGenTopic" name="topic" placeholder="e.g., Application for a Data Analyst role" required>
+                </div>
+                <div class="form-group">
+                    <label for="docGenAudience">Audience</label>
+                    <input type="text" id="docGenAudience" name="audience" placeholder="e.g., Hiring Manager, Project Team" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="docGenTone">Tone</label>
+                        <select id="docGenTone" name="tone">
+                            <option value="formal" selected>Formal</option>
+                            <option value="casual">Casual</option>
+                            <option value="technical">Technical</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="docGenLength">Length</label>
+                        <select id="docGenLength" name="length">
+                            <option value="short">Short</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="long">Long</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Generate Document</button>
+                    <button type="button" class="btn-secondary" id="docGenCancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
